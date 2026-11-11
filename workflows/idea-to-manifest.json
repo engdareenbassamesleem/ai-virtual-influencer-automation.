@@ -1,0 +1,44 @@
+{
+  "name": "AI Influencer - Idea to Manifest (Dry Run)",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const idea = 'My AI Assistant Took Everything Literally';\nreturn [{json: {idea, status: 'draft', character: 'NOVA AI', script: null, video: null, approval: false, publishing: {youtube: 'not_configured', instagram: 'not_configured', tiktok: 'not_configured'}, note: 'Dry-run only: no generation or publishing'}}];"
+      },
+      "id": "create-manifest",
+      "name": "Create Draft Manifest",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Create Draft Manifest",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {}
+}
